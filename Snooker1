@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Snooker Scoreboard Enhanced</title>
+  <style>
+    /* (existing styles unchanged for brevity) */
+  </style>
+</head>
+<body>
+  <!-- (existing scoreboard HTML unchanged for brevity) -->
+
+  <script>
+    // (existing JavaScript setup unchanged for brevity)
+
+    function handleFoul(offendingPlayer) {
+      const foulPoints = prompt("Foul committed. Enter foul points (4, 5, 6, or 7):", "4");
+      const points = parseInt(foulPoints);
+      if ([4, 5, 6, 7].includes(points)) {
+        const otherPlayer = players.find(p => p !== offendingPlayer);
+        otherPlayer.score += points;
+        updateUI(otherPlayer);
+        history.push({ player: otherPlayer, action: 'foul', value: points });
+      } else {
+        alert("Invalid foul points entered.");
+      }
+    }
+
+    // (rest of the JavaScript unchanged for brevity)
+  </script>
+</body>
+</html>
